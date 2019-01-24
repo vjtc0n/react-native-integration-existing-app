@@ -1,10 +1,9 @@
 import { AppRegistry } from 'react-native';
 
-import { Navigation} from 'react-native-navigation';
-import Route from './src/route'
+import { Navigation } from 'react-native-navigation';
+import Route from './src/route';
 
-export const registerComponent = (key, component) =>
-  Navigation.registerComponent(key, component);
+export const registerComponent = (key, component) => Navigation.registerComponent(key, component);
 for (const key in Route) {
   registerComponent(key, () => Route[key]);
 }
@@ -21,3 +20,5 @@ Navigation.startSingleScreenApp({
     orientation: 'portrait'
   }
 });
+
+// AppRegistry.registerComponent('MyNewApp', () => App);

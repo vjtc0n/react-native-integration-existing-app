@@ -1,6 +1,7 @@
-import App from './App'
-import Login from './Login'
+import App from './App';
+import Login from './Login';
+
 export default {
-app : App,
-login : Login
-}
+  app: App,
+  login: Login
+};

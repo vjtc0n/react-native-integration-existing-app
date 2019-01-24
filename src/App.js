@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const instructions = Platform.select({
@@ -12,15 +6,14 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends React.Component {
   navigatorLogin = () => {
-    const{ navigator } = this.props;
+    const { navigator } = this.props;
     navigator.push({
-      screen : 'login',
-      title : 'Login',
-    })
-  }
+      screen: 'login',
+      title: 'Login'
+    });
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -29,9 +22,8 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>Hello World</Text>
         <Text style={styles.instructions}>{instructions}</Text>
 
-
-        <TouchableOpacity style={{height : 50, width : 100}} onPress={this.navigatorLogin}>
-             <Text style={{color : 'red'}}>LOGIN</Text>
+        <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorLogin}>
+          <Text style={{ color: 'red' }}>LOGIN</Text>
         </TouchableOpacity>
       </View>
     );
