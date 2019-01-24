@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import { wrap } from 'MyNewApp/themes';
 
@@ -14,14 +14,14 @@ const instructions = Platform.select({
 });
 
 @wrap
-export default class App extends Component{
+export default class App extends React.Component {
   navigatorLogin = () => {
-    const{ navigator } = this.props;
+    const { navigator } = this.props;
     navigator.push({
-      screen : 'login',
-      title : 'Login',
-    })
-  }
+      screen: 'login',
+      title: 'Login'
+    });
+  };
   render() {
     return (
       <View cls="flx-i aic jcc bg-#F5FCFF">
@@ -30,9 +30,8 @@ export default class App extends Component{
         <Text style={styles.instructions}>Hello World</Text>
         <Text style={styles.instructions}>{instructions}</Text>
 
-
-        <TouchableOpacity style={{height : 50, width : 100}} onPress={this.navigatorLogin}>
-             <Text cls="b black">LOGIN</Text>
+        <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorLogin}>
+          <Text cls="b black">LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{height : 50, width : 100}} onPress={() => BackHandler.exitApp()}>
              <Text cls="b black">Native APP</Text>

@@ -35,8 +35,10 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C21E175421F96C2F0020E7CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21E172D21F96C2F0020E7CC /* Main.storyboard */; };
-		C21E175821F96C480020E7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21E175621F96C470020E7CC /* AppDelegate.swift */; };
 		C21E175921F96C480020E7CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21E175721F96C480020E7CC /* ViewController.swift */; };
+		C24B3B0921F9AD6900757ECD /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24B3B0821F9AD5B00757ECD /* libReactNativeNavigation.a */; };
+		C24B3B3E21F9B06A00757ECD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C24B3B3D21F9B06A00757ECD /* AppDelegate.m */; };
+		C24B3B5321F9BAF800757ECD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C24B3B3F21F9B1E900757ECD /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +315,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C24B3B0721F9AD5B00757ECD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C24B3ADE21F9AD5B00757ECD /* ReactNativeNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
+			remoteInfo = ReactNativeNavigation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -341,8 +350,11 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C21E172E21F96C2F0020E7CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MyNewApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C21E175521F96C470020E7CC /* MyNewApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyNewApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		C21E175621F96C470020E7CC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MyNewApp/AppDelegate.swift; sourceTree = "<group>"; };
 		C21E175721F96C480020E7CC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MyNewApp/ViewController.swift; sourceTree = "<group>"; };
+		C24B3ADE21F9AD5B00757ECD /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
+		C24B3B3C21F9B06A00757ECD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyNewApp/AppDelegate.h; sourceTree = "<group>"; };
+		C24B3B3D21F9B06A00757ECD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MyNewApp/AppDelegate.m; sourceTree = "<group>"; };
+		C24B3B3F21F9B1E900757ECD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyNewApp/main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +383,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				C24B3B0921F9AD6900757ECD /* libReactNativeNavigation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +495,9 @@
 		13B07FAE1A68108700A75B9A /* MyNewApp */ = {
 			isa = PBXGroup;
 			children = (
-				C21E175621F96C470020E7CC /* AppDelegate.swift */,
+				C24B3B3F21F9B1E900757ECD /* main.m */,
+				C24B3B3C21F9B06A00757ECD /* AppDelegate.h */,
+				C24B3B3D21F9B06A00757ECD /* AppDelegate.m */,
 				C21E175721F96C480020E7CC /* ViewController.swift */,
 				C21E172D21F96C2F0020E7CC /* Main.storyboard */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -546,6 +561,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C24B3ADE21F9AD5B00757ECD /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -601,6 +617,14 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C24B3ADF21F9AD5B00757ECD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C24B3B0821F9AD5B00757ECD /* libReactNativeNavigation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -767,6 +791,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C24B3ADF21F9AD5B00757ECD /* Products */;
+					ProjectRef = C24B3ADE21F9AD5B00757ECD /* ReactNativeNavigation.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1039,6 +1067,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C24B3B0821F9AD5B00757ECD /* libReactNativeNavigation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeNavigation.a;
+			remoteRef = C24B3B0721F9AD5B00757ECD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1120,8 +1155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C21E175821F96C480020E7CC /* AppDelegate.swift in Sources */,
+				C24B3B5321F9BAF800757ECD /* main.m in Sources */,
 				C21E175921F96C480020E7CC /* ViewController.swift in Sources */,
+				C24B3B3E21F9B06A00757ECD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1259,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = TXU6BDYHDH;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
 				INFOPLIST_FILE = MyNewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1247,6 +1284,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TXU6BDYHDH;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
 				INFOPLIST_FILE = MyNewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

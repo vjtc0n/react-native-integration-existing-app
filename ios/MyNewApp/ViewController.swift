@@ -21,10 +21,11 @@ class ViewController: UIViewController {
       // Create a new UIViewController
       let rnViewController = UIViewController()
       // Assign our rootView into the UIViewController
-      rnViewController.view = appDelegate.rootView
+//      rnViewController.view = appDelegate.getRootView()
       // Present our new UIViewController
+      appDelegate.getRootView()
       self.present(rnViewController, animated: true, completion: nil)
-        
+      
     }
 }
 
