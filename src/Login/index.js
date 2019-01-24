@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { wrap } from 'MyNewApp/themes';
+@wrap
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
-});
-
-type Props = {};
-export default class Login extends Component<Props> {
+export default class Login extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>Hello World</Text>
+      <View cls="aic jcc bg-#F5FCFF">
+        <Text cls="tc black f4">To get started, edit App.js</Text>
+        <Text cls="primary">Hello World</Text>
       </View>
     );
   }
