@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "react-native",
+    "flow"
+  ],
+  "plugins": [
+    "babel-plugin-transform-decorators-legacy"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+  }
+}
