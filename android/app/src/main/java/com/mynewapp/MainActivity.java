@@ -1,15 +1,33 @@
 package com.mynewapp;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
+import android.view.View;
+import android.content.Intent;
+import android.widget.Button;
+import android.view.View.OnClickListener;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends ReactActivity {
-
-    /**
-     * Returns the name of the main component registered from JavaScript.
-     * This is used to schedule rendering of the component.
-     */
     @Override
-    protected String getMainComponentName() {
-        return "MyNewApp";
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button btn1= (Button) findViewById(R.id.button);
+        btn1.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(), ReactMainActivity.class);
+                startActivity(i);
+            }
+
+        });
     }
+
+
+
+
 }
+
+

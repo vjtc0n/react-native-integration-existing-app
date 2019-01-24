@@ -17,9 +17,6 @@ class ViewController: UIViewController {
 
 
     @IBAction func OnNavigateToReact(_ sender: Any) {
-//        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertController.Style.alert)
-//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
       // Create a new UIViewController
       let rnViewController = UIViewController()
