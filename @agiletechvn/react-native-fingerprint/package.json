@@ -1,0 +1,23 @@
+{
+  "name": "react-native-fingerprint",
+  "version": "2.3.2",
+  "description": "React Native Fingerprint for Android and iOS",
+  "main": "index.js",
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "react-component",
+    "react",
+    "native",
+    "touch",
+    "touchid",
+    "touch-id",
+    "fingerprint",
+    "authentication",
+    "authenticate",
+    "auth"
+  ],
+  "repository": "https://github.com/agiletechvn/react-native-fingerprint.git",
+  "author": "Thanh tu (tu@agiletech.vn)",
+  "license": "MIT"
+}

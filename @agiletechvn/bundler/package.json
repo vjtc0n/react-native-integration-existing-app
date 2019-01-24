@@ -1,0 +1,9 @@
+{
+  "name": "@agiletechvn/bundler",
+  "version": "1.0.7",
+  "description": "A command line tool of bundler",
+  "keywords": ["react-native", "@agiletechvn/bundler", "cli"],
+  "author": "tupt <tu@agiletech.vn>",
+  "license": "MIT",
+  "dependencies": {}
+}

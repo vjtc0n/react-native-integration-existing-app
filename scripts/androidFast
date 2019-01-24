@@ -1,0 +1,6 @@
+ADB_COMMAND="adb"
+if [ ! -z $1 ];then
+  ADB_COMMAND="$ADB_COMMAND -s $1"
+fi
+
+cd android && ./gradlew assembleRelease --dry-run && $ADB_COMMAND install -r app/build/outputs/apk/release/app-armeabi-v7a-release.apk && $ADB_COMMAND shell am start -n com.zota.wallet/com.zota.wallet.MainActivity
