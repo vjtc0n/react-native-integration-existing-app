@@ -1,11 +1,13 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { wrap } from 'MyNewApp/themes';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
 });
 
+@wrap
 export default class App extends React.Component {
   navigatorLogin = () => {
     const { navigator } = this.props;
@@ -16,14 +18,14 @@ export default class App extends React.Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <View cls="flx-i aic jcc bg-#F5FCFF">
+        <Text cls="tc gray">Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>Hello World</Text>
         <Text style={styles.instructions}>{instructions}</Text>
 
         <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorLogin}>
-          <Text style={{ color: 'red' }}>LOGIN</Text>
+          <Text cls="b black">LOGIN</Text>
         </TouchableOpacity>
       </View>
     );
