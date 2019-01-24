@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import { wrap } from 'MyNewApp/themes';
 
 const instructions = Platform.select({
@@ -24,7 +24,7 @@ export default class App extends Component{
   }
   render() {
     return (
-      <View cls="aic jcc bg-#F5FCFF">
+      <View cls="flx-i aic jcc bg-#F5FCFF">
         <Text cls="tc gray">Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>Hello World</Text>
@@ -33,6 +33,9 @@ export default class App extends Component{
 
         <TouchableOpacity style={{height : 50, width : 100}} onPress={this.navigatorLogin}>
              <Text cls="b black">LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{height : 50, width : 100}} onPress={() => BackHandler.exitApp()}>
+             <Text cls="b black">Native APP</Text>
         </TouchableOpacity>
       </View>
     );

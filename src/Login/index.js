@@ -6,7 +6,7 @@ import { wrap } from 'MyNewApp/themes';
 export default class Login extends Component{
   render() {
     return (
-      <View cls="aic jcc bg-#F5FCFF">
+      <View cls="flx-i aic jcc bg-#F5FCFF">
         <Text cls="tc black f4">To get started, edit App.js</Text>
         <Text cls="primary">Hello World</Text>
       </View>
