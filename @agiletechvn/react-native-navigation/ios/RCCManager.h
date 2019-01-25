@@ -2,10 +2,15 @@
 #import <React/RCTBridgeModule.h>
 #import <UIKit/UIKit.h>
 
+
+@protocol RCCManagerDelegate <NSObject>
+@optional
+- (UIViewController*)getViewController:(NSString *)native;
+@end
+
 @interface RCCManager : NSObject
 
 + (instancetype)sharedInstance;
-+ (instancetype)sharedIntance;
 
 -(void)initBridgeWithBundleURL:(NSURL *)bundleURL;
 -(void)initBridgeWithBundleURL:(NSURL *)bundleURL launchOptions:(NSDictionary *)launchOptions;
@@ -19,7 +24,9 @@
 -(id)getControllerWithId:(NSString*)componentId componentType:(NSString*)componentType;
 -(void)unregisterController:(UIViewController*)vc;
 -(NSString*) getIdForController:(UIViewController*)vc;
-
+-(void) navigate:(NSDictionary*)options;
 -(void)clearModuleRegistry;
+
+@property (nonatomic, weak) id <RCCManagerDelegate> delegate;
 
 @end

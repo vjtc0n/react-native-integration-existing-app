@@ -5,12 +5,17 @@
  */
 
 import React from 'react';
-const { NativeEventEmitter, NativeModules } = require('react-native');
-const RCCManager = NativeModules.RCCManager;
-import { Platform, StyleSheet, Text, View, TouchableOpacity, BackHandler } from 'react-native';
-import { wrap } from 'MyNewApp/themes';
 
-const managerEmitter = new NativeEventEmitter(RCCManager);
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  NativeAppEventEmitter,
+  DeviceEventEmitter
+} from 'react-native';
+import { wrap } from 'MyNewApp/themes';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,7 +26,8 @@ const instructions = Platform.select({
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.subscription = managerEmitter.addListener('EventNavigate', data => {
+    const emitter = Platform.OS === 'android' ? DeviceEventEmitter : NativeAppEventEmitter;
+    this.subscription = emitter.addListener('EventNavigate', data => {
       const { navigator } = this.props;
       const { type, ...options } = data;
       navigator[type](options);

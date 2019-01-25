@@ -4,6 +4,7 @@
 #import <React/RCTRedBox.h>
 #import <React/RCTConvert.h>
 #import <Foundation/Foundation.h>
+#import <React/RCTEventDispatcher.h>
 #import "RCTHelpers.h"
 
 @interface RCCManager() <RCTBridgeDelegate>
@@ -26,10 +27,6 @@
     });
     
     return sharedInstance;
-}
-
-+ (instancetype)sharedIntance {
-    return [RCCManager sharedInstance];
 }
 
 - (instancetype)init {
@@ -302,6 +299,14 @@
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:image];
 }
 
+- (void)navigate:(NSDictionary *)options{
+    
+    [self.sharedBridge.eventDispatcher sendAppEventWithName:@"EventNavigate" body:options];
+        
+     
+//    [self.sharedBridge enqueueJSCall: @"RCTDeviceEventEmitter"
+//                                     method: @"emit" args:@[@"EventNavigate", options] completion:nil];
+}
 
 #pragma mark - RCTBridgeDelegate methods
 
