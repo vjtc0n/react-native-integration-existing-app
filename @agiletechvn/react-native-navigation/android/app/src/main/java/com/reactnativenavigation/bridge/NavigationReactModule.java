@@ -1,5 +1,6 @@
 package com.reactnativenavigation.bridge;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import com.facebook.react.bridge.Callback;
@@ -9,6 +10,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
+import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.controllers.NavigationCommandsHandler;
 import com.reactnativenavigation.params.ContextualMenuParams;
 import com.reactnativenavigation.params.FabParams;
@@ -179,6 +181,12 @@ public class NavigationReactModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void push(final ReadableMap params, Promise onPushComplete) {
+        if (params.hasKey("native")){
+            Intent intent = NavigationApplication.instance.getViewController(params.getString("native"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+            NavigationApplication.instance.startActivity(intent);
+            return;
+        }
         NavigationCommandsHandler.push(BundleConverter.toBundle(params), onPushComplete);
     }
 

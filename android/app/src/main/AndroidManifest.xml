@@ -22,13 +22,12 @@
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReactMainActivity"
-            android:label="ReactActivity"
+            android:name=".HomeActivity"
+            android:label="HomeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />

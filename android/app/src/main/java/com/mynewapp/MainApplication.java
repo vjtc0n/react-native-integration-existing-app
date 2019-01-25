@@ -1,16 +1,16 @@
 package com.mynewapp;
 
-import android.app.Application;
-import com.reactnativenavigation.NavigationApplication;
-import com.facebook.react.ReactApplication;
-import com.facebook.react.ReactNativeHost;
+import android.app.Activity;
+import android.content.Intent;
+
+import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.facebook.react.ReactInstanceManager;
+import com.reactnativenavigation.NavigationApplication;
+
 import java.util.Arrays;
 import java.util.List;
-import android.app.Activity;
 
 
 public class MainApplication extends NavigationApplication {
@@ -33,6 +33,18 @@ public class MainApplication extends NavigationApplication {
     @Override
       public String getJSMainModuleName() {
           return "index";
+      }
+
+      @Override
+      public Intent getViewController(String nativeName) {
+        Intent intent = null;
+        switch (nativeName){
+            case "HomeController":
+                intent = new Intent(getApplicationContext(), HomeActivity.class);
+                break;
+        }
+
+        return intent;
       }
 
     @Override

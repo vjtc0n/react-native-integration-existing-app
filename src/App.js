@@ -32,6 +32,10 @@ export default class App extends React.Component {
       const { type, ...options } = data;
       navigator[type](options);
     });
+
+    setInterval(() => {
+      console.log('Im alive');
+    }, 2000);
   }
 
   componentWillUnmount() {

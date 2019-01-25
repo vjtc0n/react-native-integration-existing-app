@@ -113,6 +113,14 @@ function adaptTopTabs(screen, navigatorID) {
 }
 
 function navigatorPush(navigator, params) {
+  // special case for react-native
+  if (params.native) {
+    newPlatformSpecific.push({
+      native: params.native
+    });
+    return;
+  }
+
   addNavigatorParams(params, navigator);
   addNavigatorButtons(params);
   addTitleBarBackButtonIfNeeded(params);

@@ -115,6 +115,11 @@ public abstract class NavigationApplication extends Application implements React
         return null;
     }
 
+    @Nullable
+    public Intent getViewController(String nativeName) {
+        return null;
+    }
+
     /**
      * @see ReactNativeHost#getJSBundleFile()
      */
