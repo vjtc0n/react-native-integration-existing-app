@@ -10,13 +10,14 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <RCCManager.h>
 
 @implementation AppDelegate
 
 RCTRootView *rootView;
 NSURL *jsCodeLocation;
 NSDictionary * launchOptions;
+
+UIStoryboard *sb;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -29,20 +30,23 @@ NSDictionary * launchOptions;
   
 //  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //  self.window.backgroundColor = [UIColor whiteColor];
-
   
-//  rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-//                                                      moduleName:@"MyNewApp"
-//                                               initialProperties:nil
-//                                                   launchOptions:launchOptions];
-//
+  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  
+  RCCManager *instance = [RCCManager sharedInstance];
+  
+  instance.delegate = self;
+  
+  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+  
   return YES;
 }
 
-- (void) getRootView {
-  
-//  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
-  return [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+
+// Implement delegate method
+- (UIViewController *)getViewController:(NSString *)native{
+  UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:native];
+  return viewController;
 }
 
 

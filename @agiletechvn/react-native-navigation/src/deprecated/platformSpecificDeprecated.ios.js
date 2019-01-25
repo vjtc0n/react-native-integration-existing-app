@@ -368,6 +368,14 @@ function _mergeScreenSpecificSettings(screenID, screenInstanceID, params) {
 }
 
 function navigatorPush(navigator, params) {
+  // special case for react-native
+  if (params.native) {
+    Controllers.NavigationControllerIOS(navigator.navigatorID).push({
+      native: params.native
+    });
+    return;
+  }
+
   if (!params.screen) {
     console.error('Navigator.push(params): params.screen is required');
     return;

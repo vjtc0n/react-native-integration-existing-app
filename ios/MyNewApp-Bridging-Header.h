@@ -4,3 +4,5 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "AppDelegate.h"
+#import "RCCManagerModule.h"
+#import "RCCManager.h"

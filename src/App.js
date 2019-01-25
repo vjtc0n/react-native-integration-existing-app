@@ -5,8 +5,12 @@
  */
 
 import React from 'react';
+const { NativeEventEmitter, NativeModules } = require('react-native');
+const RCCManager = NativeModules.RCCManager;
 import { Platform, StyleSheet, Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import { wrap } from 'MyNewApp/themes';
+
+const managerEmitter = new NativeEventEmitter(RCCManager);
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -15,6 +19,19 @@ const instructions = Platform.select({
 
 @wrap
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.subscription = managerEmitter.addListener('EventNavigate', data => {
+      const { navigator } = this.props;
+      const { type, ...options } = data;
+      navigator[type](options);
+    });
+  }
+
+  componentWillUnmount() {
+    this.subscription.remove();
+  }
+
   navigatorLogin = () => {
     const { navigator } = this.props;
     navigator.push({
@@ -22,6 +39,14 @@ export default class App extends React.Component {
       title: 'Login'
     });
   };
+
+  navigatorNative = () => {
+    const { navigator } = this.props;
+    navigator.push({
+      native: 'HomeController'
+    });
+  };
+
   render() {
     return (
       <View cls="flx-i aic jcc bg-#F5FCFF">
@@ -33,8 +58,8 @@ export default class App extends React.Component {
         <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorLogin}>
           <Text cls="b black">LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{height : 50, width : 100}} onPress={() => BackHandler.exitApp()}>
-             <Text cls="b black">Native APP</Text>
+        <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorNative}>
+          <Text cls="b black">Native APP</Text>
         </TouchableOpacity>
       </View>
     );

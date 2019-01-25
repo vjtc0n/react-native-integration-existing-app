@@ -7,14 +7,11 @@
 
 #import <UIKit/UIKit.h>
 #import <React/RCTRootView.h>
+#import <RCCManager.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RCCManagerDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 
-@property RCTRootView *rootView;
-
-
-- (void) getRootView;
 
 @end

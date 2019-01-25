@@ -17,14 +17,8 @@ class ViewController: UIViewController {
 
 
     @IBAction func OnNavigateToReact(_ sender: Any) {
-      let appDelegate = UIApplication.shared.delegate as! AppDelegate
-      // Create a new UIViewController
-      let rnViewController = UIViewController()
-      // Assign our rootView into the UIViewController
-//      rnViewController.view = appDelegate.getRootView()
-      // Present our new UIViewController
-      appDelegate.getRootView()
-      self.present(rnViewController, animated: true, completion: nil)
+      
+      RCCManager.sharedInstance()?.navigate(["type": "pop"])
       
     }
 }
