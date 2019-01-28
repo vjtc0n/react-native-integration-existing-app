@@ -21,5 +21,8 @@ class ViewController: UIViewController {
       RCCManager.sharedInstance()?.navigate(["type": "pop"])
       
     }
+    @IBAction func OnNavigateToNewReact(_ sender: Any) {
+      RCCManager.sharedInstance()?.navigate(["type": "push", "screen": "login", "title": "This is Login from React Native", "passProps": ["aPropFromNative": "red"]])
+    }
 }
 

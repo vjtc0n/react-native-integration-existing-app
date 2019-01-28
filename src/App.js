@@ -1,11 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React from 'react';
-
 import {
   Platform,
   StyleSheet,
@@ -17,6 +10,8 @@ import {
 } from 'react-native';
 import { wrap } from 'MyNewApp/themes';
 
+import NativeEventEmitter from './NativeEventEmitter';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
@@ -24,24 +19,6 @@ const instructions = Platform.select({
 
 @wrap
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    const emitter = Platform.OS === 'android' ? DeviceEventEmitter : NativeAppEventEmitter;
-    this.subscription = emitter.addListener('EventNavigate', data => {
-      const { navigator } = this.props;
-      const { type, ...options } = data;
-      navigator[type](options);
-    });
-
-    setInterval(() => {
-      console.log('Im alive');
-    }, 2000);
-  }
-
-  componentWillUnmount() {
-    this.subscription.remove();
-  }
-
   navigatorLogin = () => {
     const { navigator } = this.props;
     navigator.push({
@@ -58,6 +35,8 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { navigator } = this.props;
+
     return (
       <View cls="flx-i aic jcc bg-#F5FCFF">
         <Text cls="tc gray">Welcome to React Native!</Text>
@@ -71,6 +50,7 @@ export default class App extends React.Component {
         <TouchableOpacity style={{ height: 50, width: 100 }} onPress={this.navigatorNative}>
           <Text cls="b black">Native APP</Text>
         </TouchableOpacity>
+        <NativeEventEmitter navigator={navigator} />
       </View>
     );
   }

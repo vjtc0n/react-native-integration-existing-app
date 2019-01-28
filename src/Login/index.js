@@ -8,6 +8,9 @@ export default class Login extends Component {
       <View cls="flx-i aic jcc bg-#F5FCFF">
         <Text cls="tc black f4">To get started, edit App.js</Text>
         <Text cls="primary">Hello World</Text>
+        {this.props.aPropFromNative ? (
+          <Text cls="primary">{this.props.aPropFromNative}</Text>
+        ) : null}
       </View>
     );
   }
