@@ -9,7 +9,10 @@ export default class Login extends Component {
         <Text cls="tc black f4">To get started, edit App.js</Text>
         <Text cls="primary">Hello World</Text>
         {this.props.aPropFromNative ? (
-          <Text cls="primary">{this.props.aPropFromNative}</Text>
+          <View>
+            <Text cls="primary mt4">This is a props from Native Controller (Native View)</Text>
+            <Text cls="primary">{this.props.aPropFromNative}</Text>
+          </View>
         ) : null}
       </View>
     );

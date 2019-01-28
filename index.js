@@ -13,6 +13,7 @@ buildTheme();
 Navigation.startSingleScreenApp({
   screen: {
     screen: 'app',
+    // native: 'HomeController',
     navigatorStyle: {
       navBarHidden: true
     }
