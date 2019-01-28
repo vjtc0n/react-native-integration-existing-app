@@ -115,10 +115,12 @@ function adaptTopTabs(screen, navigatorID) {
 function navigatorPush(navigator, params) {
   // special case for react-native
   if (params.native) {
-    newPlatformSpecific.push({
-      native: params.native
-    });
-    return;
+    let options = {
+      native: params.native,
+      navigationParams: {}
+    };
+    addNavigatorParams(options.navigationParams, navigator);
+    return newPlatformSpecific.push(options);
   }
 
   addNavigatorParams(params, navigator);
