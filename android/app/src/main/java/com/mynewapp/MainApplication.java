@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.controllers.ActivityCallbacks;
 import com.reactnativenavigation.params.ScreenParams;
 import com.reactnativenavigation.screens.Screen;
 import com.reactnativenavigation.views.LeftButtonOnClickListener;
@@ -40,18 +42,15 @@ public class MainApplication extends NavigationApplication {
       }
 
       @Override
-      public Screen getViewController(String nativeName,AppCompatActivity activity,
-                                      ScreenParams screenParams,
-                                      LeftButtonOnClickListener leftButtonOnClickListener) {
-        Screen screen = null;
+      public Intent getViewController(String nativeName) {
+        Intent intent = null;
         switch (nativeName){
             case "HomeController":
-//                screen = new Intent(getApplicationContext(), HomeScreen.class);
-                screen = new HomeScreen(activity, screenParams, leftButtonOnClickListener);
+                intent = new Intent(this, HomeActivity.class);
                 break;
         }
 
-        return screen;
+        return intent;
       }
 
     @Override
@@ -69,5 +68,18 @@ public class MainApplication extends NavigationApplication {
     public ReactInstanceManager getReactInstanceManager() {
       return getReactNativeHost().getReactInstanceManager();
     }
-   
+
+    public void callNavigation(final WritableMap map){
+        ActivityCallbacks callbacks = new ActivityCallbacks(){
+            @Override
+            public void onActivityResumed(Activity activity) {
+                NavigationApplication.instance.getEventEmitter().sendNavigatorEvent("EventNavigate", map);
+            }
+        };
+        this.setActivityCallbacks(callbacks);
+    }
+
+
+
+
 }
