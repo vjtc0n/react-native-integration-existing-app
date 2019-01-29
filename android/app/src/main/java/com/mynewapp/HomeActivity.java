@@ -30,9 +30,7 @@ public class HomeActivity extends Activity {
                 map.putString("type", "push");
                 map.putString("screen", "login");
                 map.putString("title", "Login");
-
-                MainApplication application = (MainApplication)NavigationApplication.instance;
-                application.callNavigation(map);
+                NavigationApplication.instance.navigate(map);
 
             }
 

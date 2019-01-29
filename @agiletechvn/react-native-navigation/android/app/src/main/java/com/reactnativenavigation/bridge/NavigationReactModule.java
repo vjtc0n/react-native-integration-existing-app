@@ -183,7 +183,6 @@ public class NavigationReactModule extends ReactContextBaseJavaModule {
     public void push(final ReadableMap params, Promise onPushComplete) {
         if (params.hasKey("native")){
             Intent intent = NavigationApplication.instance.getViewController(params.getString("native"));
-            intent.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
             NavigationApplication.instance.startActivity(intent);
             return;
         }

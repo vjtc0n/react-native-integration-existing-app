@@ -3,6 +3,7 @@ package com.reactnativenavigation;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.UIImplementationProvider;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.reactnativenavigation.bridge.EventEmitter;
@@ -105,6 +107,10 @@ public abstract class NavigationApplication extends Application implements React
                 .getReactInstanceManager()
                 .getCurrentReactContext()
                 .getNativeModule(UIManagerModule.class);
+    }
+
+    public void navigate(WritableMap map){
+        eventEmitter.sendNavigatorEvent("EventNavigate", map);
     }
 
     /**

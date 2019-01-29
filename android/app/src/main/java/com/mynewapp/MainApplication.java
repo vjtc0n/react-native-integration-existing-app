@@ -69,15 +69,15 @@ public class MainApplication extends NavigationApplication {
       return getReactNativeHost().getReactInstanceManager();
     }
 
-    public void callNavigation(final WritableMap map){
-        ActivityCallbacks callbacks = new ActivityCallbacks(){
-            @Override
-            public void onActivityResumed(Activity activity) {
-                NavigationApplication.instance.getEventEmitter().sendNavigatorEvent("EventNavigate", map);
-            }
-        };
-        this.setActivityCallbacks(callbacks);
-    }
+//    public void callNavigation(final WritableMap map){
+//        ActivityCallbacks callbacks = new ActivityCallbacks(){
+//            @Override
+//            public void onActivityResumed(Activity activity) {
+//                NavigationApplication.instance.getEventEmitter().sendNavigatorEvent("EventNavigate", map);
+//            }
+//        };
+//        this.setActivityCallbacks(callbacks);
+//    }
 
 
 
