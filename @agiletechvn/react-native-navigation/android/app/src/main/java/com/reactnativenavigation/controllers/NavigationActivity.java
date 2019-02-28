@@ -157,11 +157,12 @@ public class NavigationActivity extends AppCompatActivity implements DefaultHard
     @Override
     protected void onPause() {
         super.onPause();
-        currentActivity = null;
-        IntentDataHandler.onPause(getIntent());
-        getReactGateway().onPauseActivity(this);
-        NavigationApplication.instance.getActivityCallbacks().onActivityPaused(this);
-        EventBus.instance.unregister(this);
+//        currentActivity = null;
+//        IntentDataHandler.onPause(getIntent());
+//        // we are superapp, do not pause react gateway so that other activity can call
+//        getReactGateway().onPauseActivity(this);
+//        NavigationApplication.instance.getActivityCallbacks().onActivityPaused(this);
+//        EventBus.instance.unregister(this);
     }
 
     @Override

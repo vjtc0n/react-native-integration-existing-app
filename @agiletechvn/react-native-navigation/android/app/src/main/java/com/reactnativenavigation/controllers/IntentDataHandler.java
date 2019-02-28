@@ -8,7 +8,7 @@ import com.reactnativenavigation.NavigationApplication;
 
 import static android.content.Intent.ACTION_VIEW;
 
-class IntentDataHandler {
+public class IntentDataHandler {
     private static Intent intent;
 
     static void onStartApp(Intent intent) {
@@ -23,7 +23,7 @@ class IntentDataHandler {
         }
     }
 
-    static void saveIntentData(Intent intent) {
+    public static void saveIntentData(Intent intent) {
         IntentDataHandler.intent = intent;
     }
 

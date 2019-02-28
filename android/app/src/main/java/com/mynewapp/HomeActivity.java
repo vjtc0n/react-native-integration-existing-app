@@ -24,13 +24,15 @@ public class HomeActivity extends Activity {
 
             public void onClick(View v) {
                 // SuperApp is just an activity in Android, not Navigation in iOS
-                HomeActivity.super.finish();
+
 
                 WritableMap map = Arguments.createMap();
                 map.putString("type", "push");
                 map.putString("screen", "login");
                 map.putString("title", "Login");
                 NavigationApplication.instance.navigate(map);
+
+                HomeActivity.super.finish();
 
             }
 

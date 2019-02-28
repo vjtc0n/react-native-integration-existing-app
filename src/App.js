@@ -17,10 +17,15 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
 });
 
+setInterval(() => {
+  console.log('Javascript is running');
+}, 1000);
+
 @wrap
 export default class App extends React.Component {
   navigatorLogin = () => {
     const { navigator } = this.props;
+    console.log(navigator);
     navigator.push({
       screen: 'login',
       title: 'Login'
@@ -29,6 +34,7 @@ export default class App extends React.Component {
 
   navigatorNative = () => {
     const { navigator } = this.props;
+
     navigator.push({
       native: 'HomeController'
     });

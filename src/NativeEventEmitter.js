@@ -27,28 +27,30 @@ export default class NativeEventEmitter extends React.PureComponent {
   componentDidMount() {
     const emitter = Platform.OS === 'android' ? DeviceEventEmitter : NativeAppEventEmitter;
     this.subscription = emitter.addListener('EventNavigate', data => {
-      this.eventNavigate = data;
+      // this.eventNavigate = data;
       console.log(data);
-      this.checkNavigate();
+      const { type, ...options } = data;
+      this.props.navigator[type](options);
+      // this.checkNavigate();
     });
-    AppState.addEventListener('change', this._handleAppStateChange);
+    // AppState.addEventListener('change', this._handleAppStateChange);
   }
 
-  _handleAppStateChange = nextAppState => {
-    this.nextAppState = nextAppState;
-    this.checkNavigate();
-  };
+  // _handleAppStateChange = nextAppState => {
+  //   this.nextAppState = nextAppState;
+  //   this.checkNavigate();
+  // };
 
-  checkNavigate() {
-    if (this.nextAppState === 'active') {
-      if (this.eventNavigate) {
-        const { navigator } = this.props;
-        const { type, ...options } = this.eventNavigate;
-        navigator[type](options);
-        this.eventNavigate = null;
-      }
-    }
-  }
+  // checkNavigate() {
+  //   if (this.nextAppState === 'active') {
+  //     if (this.eventNavigate) {
+  //       const { navigator } = this.props;
+  //       const { type, ...options } = this.eventNavigate;
+  //       navigator[type](options);
+  //       this.eventNavigate = null;
+  //     }
+  //   }
+  // }
 
   componentWillUnmount() {
     this.subscription && this.subscription.remove();

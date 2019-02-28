@@ -56,6 +56,8 @@ public class MainApplication extends NavigationApplication {
     @Override
     public void onCreate() {
       super.onCreate();
+      getReactGateway().startReactContextOnceInBackgroundAndExecuteJS();
+//      NavigationApplication.instance.startReactContextOnceInBackgroundAndExecuteJS();
       SoLoader.init(this, /* native exopackage */ false);
     }
 
