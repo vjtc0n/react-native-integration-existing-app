@@ -18,6 +18,7 @@ import com.facebook.react.uimanager.UIImplementationProvider;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.reactnativenavigation.bridge.EventEmitter;
 import com.reactnativenavigation.controllers.ActivityCallbacks;
+import com.reactnativenavigation.controllers.ComponentActivity;
 import com.reactnativenavigation.react.NavigationReactGateway;
 import com.reactnativenavigation.react.ReactGateway;
 
@@ -31,6 +32,7 @@ public abstract class NavigationApplication extends Application implements React
     private EventEmitter eventEmitter;
     private Handler handler;
     private ActivityCallbacks activityCallbacks;
+    private String currentComponent;
 
     @Override
     public void onCreate() {
@@ -54,6 +56,12 @@ public abstract class NavigationApplication extends Application implements React
         } else {
             super.startActivity(intent);
         }
+    }
+
+    public void startComponentActivity(String component) {
+        currentComponent = component;
+        final Intent intent = new Intent(this, ComponentActivity.class);
+        super.startActivity(intent);
     }
 
     // here in case someone wants to override this
@@ -102,6 +110,10 @@ public abstract class NavigationApplication extends Application implements React
         return eventEmitter;
     }
 
+    public String getCurrentComponent(){
+        return currentComponent;
+    }
+
     public UIManagerModule getUiManagerModule() {
         return getReactGateway()
                 .getReactInstanceManager()
@@ -112,6 +124,7 @@ public abstract class NavigationApplication extends Application implements React
     public void navigate(WritableMap map){
         eventEmitter.sendNavigatorEvent("EventNavigate", map);
     }
+
 
     /**
      * @see ReactNativeHost#getJSMainModuleName()

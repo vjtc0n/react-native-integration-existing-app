@@ -2,18 +2,12 @@ package com.mynewapp;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
-import com.reactnativenavigation.controllers.ActivityCallbacks;
-import com.reactnativenavigation.params.ScreenParams;
-import com.reactnativenavigation.screens.Screen;
-import com.reactnativenavigation.views.LeftButtonOnClickListener;
 
 import java.util.Arrays;
 import java.util.List;
